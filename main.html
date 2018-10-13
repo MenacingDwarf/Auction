@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Аукцион</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+   <script src="https://npmcdn.com/@reactivex/rxjs@5.0.0-beta.6/dist/global/Rx.umd.js"></script>
+  </head>
+
+  <body>
+    <% obj1 = JSON.parse(lot1); %>
+    <% obj2 = JSON.parse(lot2); %>
+    <% obj3 = JSON.parse(lot3); %>
+    <div class="container">
+      <div class="row header container-fluid">
+        <div class="col col-5 logo">
+            <a href="/">Аукцион</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-4">
+          <div>
+              <div class="lot-name">
+                <div class="card" style="width: 100%;">
+                <img class="card-img-top" src=<%= obj1.url %> alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><%= obj1.short %></h5>
+                  <a href="#" class="btn btn-primary">Купить</a>
+                </div>
+              </div>
+              </div>
+              <div class="lot-name">
+                <a href='/2'>Второй лот</a>
+              </div>
+              <div class="lot-name">
+                <a href='/3'>Третий лот</a>
+              </div>
+          </div>
+        </div>
+        <div class="col col-8 info">
+          <div class="alert alert-primary" role="alert">
+            <img src="https://crimea-news.com/img/20171123/8f2716a787bbe0a530ec9cc66600d4df.jpg">
+            <p>
+            Перед вами аукцион. Аукциоон — публичная продажа товаров, ценных бумаг, имущества предприятий, произведений искусства, и других объектов, которая производится по заранее установленным правилам аукциона. Общим для всех аукционов принципом является принцип состязательности между потенциальными покупателями. В процессе состязания между покупателями за право приобрести товар выявляется победитель аукциона. Победителем аукциона признаётся лицо, выигравшее аукцион в соответствии с его правилами. В этом случае объект приобретается победителем аукциона. 
+            </p>
+            <p>
+            <a href="https://ru.wikipedia.org/wiki/%D0%90%D1%83%D0%BA%D1%86%D0%B8%D0%BE%D0%BD" target="_blank">Википедия</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
