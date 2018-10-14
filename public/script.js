@@ -1,21 +1,5 @@
-Pusher.logToConsole = true;
-
-      var pusher = new Pusher('405826115758c772ee2a', {
-        cluster: 'eu',
-        forceTLS: true
-      });
-
-      var channel = pusher.subscribe('my-channel');
-
 
 var btn = document.getElementById("btnRaise");
-  btn.onclick = function raise(){
-    updateTime();
-    updatePrice(500);
-  }
-
-basePrice = parseInt(document.getElementById("price").innerHTML);
-
 
 function updatePrice(dollars){
 	basePrice += dollars;
@@ -23,6 +7,7 @@ function updatePrice(dollars){
 }
 
 var currentTimer = document.getElementById("time").innerHTML;
+var baseTimer = document.getElementById("time").innerHTML;
 
 startTimer();
 function startTimer(){
@@ -47,5 +32,5 @@ function formatTime(time){
 }
 
 function updateTime() {
-	currentTimer = "00:50";
+	currentTimer = baseTimer;
 }

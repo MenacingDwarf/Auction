@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
    <script src="https://npmcdn.com/@reactivex/rxjs@5.0.0-beta.6/dist/global/Rx.umd.js"></script>
-   <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
   </head>
 
   <body>
@@ -74,11 +73,16 @@
                   <h5 class="card-title"><%= obj.short %></h5>
                   <p class="card-text"><%= obj.name %></p>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><span id="time"><%= time %></span></li>
+                    <li class="list-group-item"><span id="time"><%= obj.time %></span></li>
                     <li class="list-group-item"><span id="price"><%= obj.price %></span>
               рублей</li>
                   </ul>
-                  <a href="#btnRaise" class="btn btn-primary" id="btnRaise">Повысить цену</a>
+                  <form action="/update/<%= obj.id  %>" method="post">
+                  	<input type="hidden" id="Price" name="Price" value="500">
+                  	<input type="hidden" id="id" name="id" value="<%= obj.id  %>">
+                  	<input type="hidden" id="id" name="base_time" value="<%= obj.base_time  %>">
+                  	<input type="submit" name="btn"  id="btnRaise" class="btn btn-success" value="Повысить цену">
+                  </form>
                 </div>
               </div>
               </div>
