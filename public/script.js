@@ -1,4 +1,20 @@
 
+//var Pusher = require('pusher');
+
+Pusher.logToConsole = true;
+
+    var pusher = new Pusher('405826115758c772ee2a', {
+      cluster: 'eu',
+      forceTLS: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('raised'+document.getElementById("id").value, function(data) {
+    	alert(JSON.parse(data).id);
+        currentTimer = document.getElementById("base_time").value;
+        document.getElementById("price").innerHTML = parseInt(document.getElementById("price").innerHTML) + 500;
+    });
+
 var btn = document.getElementById("btnRaise");
 
 function updatePrice(dollars){

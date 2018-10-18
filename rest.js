@@ -8,6 +8,16 @@ server = express();
 server.use(express.static(path.join(__dirname, 'public')));
 server.set('view engine', 'ejs');
 
+var Pusher = require('pusher');
+
+var pusher = new Pusher({
+  appId: '616895',
+  key: '405826115758c772ee2a',
+  secret: 'dee18704a72df12f4182',
+  cluster: 'eu',
+  encrypted: true
+});
+
 server.get('/',function(req,res){
     res.render('main', {mp: mp, lot1: mp.encode(lot_1), lot2: mp.encode(lot_2),lot3: mp.encode(lot_3)});
 });
@@ -64,6 +74,10 @@ server.get('/3', function(req, res) {
 });
 
 server.post('/update/:id', urlencodedParser, function (req, res) {
+  console.log("price "+req.params.id+" raised");
+  pusher.trigger('my-channel', 'raised'+req.params.id, {
+  	"id": req.params.id
+	});
   if (req.params.id == '1') {
     lot_1.price += Number(req.body.Price);
     lot_1.time = lot_1.base_time;
@@ -77,7 +91,6 @@ server.post('/update/:id', urlencodedParser, function (req, res) {
     lot_3.time = lot_3.base_time;
     res.redirect('/3');
   } 
-  
 })
 
 
